@@ -32,7 +32,7 @@ const ITEMS_PER_PAGE = 25;
 
 export default function Home() {
 
-  const highlightArtists = ['clw65a0yh0000wyepqjmft5d4', 'clwck2z2i0000llk5of5dpurg', 'clwfufq5h00001f5bz27mxvja', 'clwg4ub5s000012658p63aogl']
+  const highlightArtists = ['clwhmpa2d0000lgra1u57u6mc', 'clwgmnyum0000bvaha085potw']
   const [artists, setArtists] = useState<User[]>([
 
   ]);
