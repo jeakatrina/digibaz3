@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* html,
+body,
+:root {
+  height: 100%;
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+@layer base {
+  :root {
+    --background: 240 11.11% 96.47%;
+    --foreground: 240 100% 1.18%;
+
+    --primary: 238.95 100% 11.18%;
+    --primary-foreground: 0 0% 100%;
+
+    --card: 240 11.11% 96.47%;
+    --card-foreground: 240 100% 1.18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 100% 1.18%;
+
+    --secondary: 240 11.76% 86.67%;
+    --secondary-foreground: 240 100% 0.39%;
+
+    --muted: 240 11.11% 91.18%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 240 11.11% 91.18%;
+    --accent-foreground: 238.95 100% 11.18%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 90.2%;
+    --input: 0 0% 90.2%;
+    --ring: 238.95 100% 11.18%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 239, 100%, 11%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* custom properties */
+
+.authphoto-bg {
+  background-image: url("/images/authphoto.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.landing-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/images/landingpagebg.jpg");
+  background-size: cover;
+  background-position: left;
+}
+
+/* uploadthing */
+
+.custom-container {
+  background-color: none;
+  margin-top: 1rem;
+}
+
+/* applied to container when readying */
+.custom-container[data-state="readying"] {
+  background-color: none;
+}
+
+/* applied to button */
+.custom-button {
+  font-size: 1rem;
+  color: rgb(0 0 0 / 1);
+  background-color: hsl(238.95 100% 11.18%);
+  padding: 0.5rem 2rem;
+}
+
+/* applied to button when uploading */
+.custom-button-uploading {
+  background-color: hsl(238.95 100% 11.18% / 0.5);
+  color: rgb(0 0 0 / 0.5);
+  cursor: not-allowed;
+}
+
+.custom-button-uploading::after {
+  background-color: hsl(238.95 100% 11.18% / 0.5) !important;
+}
+
+/* applied to the button when ready */
+.custom-button-ready {
+  color: #ecfdf5;
+}
+
+/* applied to the button when not ready */
+.custom-button-not-ready {
+  background-color: hsl(238.95 100% 11.18% / 0.5);
+  color: rgb(0 0 0 / 0.5);
+  cursor: not-allowed;
+}
+
+/* carousel */
+.embla {
+  overflow: hidden;
+  position: relative;
+  padding-top: 75%; /* 4:3 aspect ratio */
+}
+
+@media (min-width: 768px) {
+  .embla {
+    padding-top: 25%; /* 16:4 aspect ratio */
+  }
+}
+
+.embla__container {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 100%;
+}
