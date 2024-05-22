@@ -25,7 +25,7 @@ const Navbar: FC<NavbarProps> = ({ }) => {
                                 fill
                                 objectFit='cover'
                             />
-
+                            
                         </div>
                     </Link>
                     <div>
