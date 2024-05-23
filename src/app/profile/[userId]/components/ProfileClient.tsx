@@ -238,7 +238,7 @@ const ProfileClient: FC<ProfileClientProps> = ({
                             {services.map((service: Services) => (
                                 <CarouselItem key={service.id} className="basis-1/3 md:basis-1/4 lg:basis-1/6">
                                     <div className='group cursor-pointer rounded-lg shadow-sm border border-transparent hover:border-white transition-all duration-200 overflow-hidden text-primary-foreground h-full bg-primary/40 pb-2'>
-                                        <Link href={`/services/${service.id}`} target='_blank'>
+                                        <Link href={`/services/${service.id}`}>
                                             <div className='aspect-square bg-slate-100 relative overflow-hidden'>
                                                 <Image src={service.thumbnail} fill objectFit='cover' alt={service.name} className='aspect-square object-cover' />
                                             </div>
@@ -282,7 +282,6 @@ const ProfileClient: FC<ProfileClientProps> = ({
                                     <div className=' group cursor-pointer rounded-lg shadow-sm border border-transparent hover:border-white transition-all duration-200 overflow-hidden text-primary-foreground h-full pb-4 bg-primary/40 '>
                                         <Link
                                             href={`/artworks/${artwork.id}`}
-                                            target='_blank'
                                         >
                                             <div className='aspect-square bg-slate-100 relative overflow-hidden'>
                                                 <Image src={artwork.imageUrl} fill objectFit='cover' alt={artwork.title} className='aspect-square object-cover' />

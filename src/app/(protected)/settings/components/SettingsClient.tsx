@@ -195,7 +195,7 @@ const SettingsClient: FC<SettingsClientProps> = ({
                                     name='facebookLink'
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>facebook</FormLabel>
+                                            <FormLabel>Facebook</FormLabel>
                                             <FormControl>
                                                 <Input
                                                     {...field}
@@ -210,7 +210,7 @@ const SettingsClient: FC<SettingsClientProps> = ({
                                     name='instagramLink'
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>instagram</FormLabel>
+                                            <FormLabel>Instagram</FormLabel>
                                             <FormControl>
                                                 <Input
                                                     {...field}
@@ -225,7 +225,7 @@ const SettingsClient: FC<SettingsClientProps> = ({
                                     name='gmailLink'
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>instagram</FormLabel>
+                                            <FormLabel>Email</FormLabel>
                                             <FormControl>
                                                 <Input
                                                     {...field}

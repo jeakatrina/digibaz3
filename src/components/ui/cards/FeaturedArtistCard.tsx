@@ -14,7 +14,7 @@ const FeaturedArtist: FC<FeaturedArtistProps> = ({ data }) => {
     const router = useRouter();
 
     const handleClick = () => {
-        window.open(`/profile/${data.id}`, '_blank');
+        window.open(`/profile/${data.id}`);
     };
 
     return (
