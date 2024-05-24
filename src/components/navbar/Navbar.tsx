@@ -18,6 +18,7 @@ const Navbar: FC<NavbarProps> = ({ }) => {
             <Container>
                 <div className='text-primary-foreground flex flex-row w-full items-center justify-between h-[64px] px-4'>
                     <Link href='/'>
+                    <a className='flex items-center space-x-2'>
                         <div className='relative h-[60px] w-[60px] overflow-hidden'>
                             <Image
                                 src='/images/dblogo2png.png'
@@ -26,9 +27,10 @@ const Navbar: FC<NavbarProps> = ({ }) => {
                                 objectFit='cover'
                             />
                         </div>
-                        <b className='relative h-[60px] w-[60px] overflow-hidden'>
+                        <b className='relative overflow-hidden'>
                             DIGITAL BAZAAR
                         </b>
+                        </a>
                     </Link>
                     <div>
                         <MainNav />
