@@ -87,16 +87,13 @@ const PaymentModal: FC<{ onClose: () => void, onPayNow: () => void }> = ({ onClo
                 <div className="bg-[#8889DA] p-8 rounded-md w-full max-w-lg">
                     <h2 className="text-2xl font-bold mb-6 text-white">Choose a Payment Method:</h2>
                     <div className="mb-4 d-flex">
-                    <button
-                            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                            onClick={(e) => { e.preventDefault(); window.location.href = 'https://www.gcash.com/'; }}                        >
-                            GCash
+                        <button 
+                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 mr-4">
+                        <Link href="https://www.gcash.com/" target="_blank">GCash</Link>
                         </button>
                         <button
-                            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                            onClick={(e) => { e.preventDefault(); window.location.href = 'https://www.gcash.com/'; }}
-                        >
-                            Card
+                            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                            <Link href="https://www.gcash.com/" target="_blank">Card</Link>
                         </button>
                     </div>
                     <div className="flex justify-end space-x-4">
@@ -124,7 +121,7 @@ const SuccessModal: FC<{ onClose: () => void }> = ({ onClose }) => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
             <div className="bg-[#8889DA] p-8 rounded-md text-center">
                 <h2 className="text-2xl font-bold mb-4">Payment Successful!</h2>
-                <p className="mb-6">Your payment was processed successfully.</p>
+                <p className="mb-6">Your product will be sent to your email once confirmed by the artist.</p>
                 <button
                     className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
                     onClick={onClose}
