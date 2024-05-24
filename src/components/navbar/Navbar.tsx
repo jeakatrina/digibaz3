@@ -26,7 +26,7 @@ const Navbar: FC<NavbarProps> = ({ }) => {
                                 objectFit='cover'
                             />
                         </div>
-                        <b className="absolute top-[51px] left-[calc(50%_-_34px)] leading-[26px]">
+                        <b className='relative h-[60px] w-[60px] overflow-hidden'>
                             DIGITAL BAZAAR
                         </b>
                     </Link>
