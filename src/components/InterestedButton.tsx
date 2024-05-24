@@ -52,7 +52,7 @@ const InterestedButton: FC<InterestedButtonProps> = ({ userData }) => {
                 </SheetContent>
             </Sheet>
             <button 
-                className="bg-[#8889DA] px-4 py-2 rounded-full text-white hover:bg-green-600"
+                className="bg-[#8889DA] px-4 py-2 rounded-full text-white hover"
                 onClick={handlePaymentOpen}
             >
                 Buy now!
@@ -66,13 +66,65 @@ const InterestedButton: FC<InterestedButtonProps> = ({ userData }) => {
 };
 
 const PaymentModal: FC<{ onClose: () => void }> = ({ onClose }) => {
+    const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+
+    const handlePayNow = () => {
+        // Show the success modal
+        setIsSuccessModalOpen(true);
+    };
+
+    const handleSuccessClose = () => {
+        setIsSuccessModalOpen(false);
+    };
+    return (
+        <>
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                <div className="bg-[#8889DA] p-8 rounded-md w-full max-w-lg">
+                    <h2 className="text-2xl font-bold mb-6 text-white">Payment</h2>
+                    <div className="mb-4">
+                        <label className="block text-white mb-2" htmlFor="accountName">Account Name</label>
+                        <input
+                            type="text"
+                            id="accountName"
+                            className="w-full px-4 py-2 rounded-md bg-white"
+                        />
+                    </div>
+                    <div className="mb-6">
+                        <label className="block text-white mb-2" htmlFor="accountNumber">Account Number</label>
+                        <input
+                            type="text"
+                            id="accountNumber"
+                            className="w-full px-4 py-2 rounded-md bg-white"
+                        />
+                    </div>
+                    <div className="flex justify-end space-x-4">
+                        <button
+                            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                            onClick={onClose}
+                        >
+                            Close
+                        </button>
+                        <button
+                            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                            onClick={handlePayNow}
+                        >
+                            Pay now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+};
+
+const SuccessModal: FC<{ onClose: () => void }> = ({ onClose }) => {
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-            <div className="bg-white p-8 rounded-md">
-                <h2 className="text-xl font-bold mb-4">Payment</h2>
-                <p>Enter your payment details here...</p>
+            <div className="bg-white p-8 rounded-md text-center">
+                <h2 className="text-2xl font-bold mb-4">Payment Successful!</h2>
+                <p className="mb-6">Your payment was processed successfully.</p>
                 <button
-                    className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                     onClick={onClose}
                 >
                     Close
@@ -81,5 +133,7 @@ const PaymentModal: FC<{ onClose: () => void }> = ({ onClose }) => {
         </div>
     );
 };
+
+
 
 export default InterestedButton;
