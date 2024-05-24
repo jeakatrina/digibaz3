@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Artwork, User } from '@prisma/client';
+import { User } from '@prisma/client';
 import Link from 'next/link';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet';
 import { Sparkles } from 'lucide-react';
@@ -69,6 +69,13 @@ const InterestedButton: FC<InterestedButtonProps> = ({ userData }) => {
             >
                 Buy now!
             </button>
+
+            {isPaymentOpen && (
+                <PaymentModal onClose={handlePaymentClose} onPayNow={handlePayNow} />
+            )}
+            {isSuccessModalOpen && (
+                <SuccessModal onClose={handleSuccessClose} />
+            )}
         </div>
     );
 };
@@ -91,7 +98,6 @@ const PaymentModal: FC<{ onClose: () => void, onPayNow: () => void }> = ({ onClo
                             Card
                         </button>
                     </div>
-                    </div>
                     <div className="flex justify-end space-x-4">
                         <button
                             className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
@@ -107,6 +113,7 @@ const PaymentModal: FC<{ onClose: () => void, onPayNow: () => void }> = ({ onClo
                         </button>
                     </div>
                 </div>
+            </div>
         </>
     );
 };
@@ -127,6 +134,5 @@ const SuccessModal: FC<{ onClose: () => void }> = ({ onClose }) => {
         </div>
     );
 };
-
 
 export default InterestedButton;
