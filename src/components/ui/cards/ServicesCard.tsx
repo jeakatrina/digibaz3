@@ -2,6 +2,7 @@ import { ServiceWithUser } from '@/types';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FC } from 'react';
+import Link from 'next/link';
 
 interface ServiceCardProps {
     data: ServiceWithUser;
@@ -11,7 +12,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ data }) => {
     const router = useRouter();
 
     const handleClick = () => {
-        window.location.href = `/services/${data.id}`;
+        <Link href={`/services/${data?.id}`}></Link>
     };
 
     return (
