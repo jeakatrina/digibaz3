@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { User } from '@prisma/client';
+import { Artwork, User } from '@prisma/client';
 import Link from 'next/link';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet';
 import { Sparkles } from 'lucide-react';
@@ -10,6 +10,7 @@ interface InterestedButtonProps {
 
 const InterestedButton: FC<InterestedButtonProps> = ({ userData }) => {
     const [isPaymentOpen, setIsPaymentOpen] = useState(false);
+    const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
     const handlePaymentOpen = () => {
         setIsPaymentOpen(true);
@@ -17,6 +18,17 @@ const InterestedButton: FC<InterestedButtonProps> = ({ userData }) => {
 
     const handlePaymentClose = () => {
         setIsPaymentOpen(false);
+    };
+
+    const handlePayNow = () => {
+        // Show the success modal
+        setIsSuccessModalOpen(true);
+        // Close the payment modal
+        setIsPaymentOpen(false);
+    };
+
+    const handleSuccessClose = () => {
+        setIsSuccessModalOpen(false);
     };
 
     return (
@@ -57,45 +69,28 @@ const InterestedButton: FC<InterestedButtonProps> = ({ userData }) => {
             >
                 Buy now!
             </button>
-
-            {isPaymentOpen && (
-                <PaymentModal onClose={handlePaymentClose} />
-            )}
         </div>
     );
 };
 
-const PaymentModal: FC<{ onClose: () => void }> = ({ onClose }) => {
-    const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
-
-    const handlePayNow = () => {
-        // Show the success modal
-        setIsSuccessModalOpen(true);
-    };
-
-    const handleSuccessClose = () => {
-        setIsSuccessModalOpen(false);
-    };
+const PaymentModal: FC<{ onClose: () => void, onPayNow: () => void }> = ({ onClose, onPayNow }) => {
     return (
         <>
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
                 <div className="bg-[#8889DA] p-8 rounded-md w-full max-w-lg">
-                    <h2 className="text-2xl font-bold mb-6 text-white">Payment</h2>
+                    <h2 className="text-2xl font-bold mb-6 text-white">Choose a Payment Method</h2>
                     <div className="mb-4">
-                        <label className="block text-white mb-2" htmlFor="accountName">Account Name</label>
-                        <input
-                            type="text"
-                            id="accountName"
-                            className="w-full px-4 py-2 rounded-md bg-white"
-                        />
+                    <button
+                            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                        >
+                            GCash
+                        </button>
+                        <button
+                            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                        >
+                            Card
+                        </button>
                     </div>
-                    <div className="mb-6">
-                        <label className="block text-white mb-2" htmlFor="accountNumber">Account Number</label>
-                        <input
-                            type="text"
-                            id="accountNumber"
-                            className="w-full px-4 py-2 rounded-md bg-white"
-                        />
                     </div>
                     <div className="flex justify-end space-x-4">
                         <button
@@ -106,13 +101,12 @@ const PaymentModal: FC<{ onClose: () => void }> = ({ onClose }) => {
                         </button>
                         <button
                             className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-                            onClick={handlePayNow}
+                            onClick={onPayNow}
                         >
                             Pay now
                         </button>
                     </div>
                 </div>
-            </div>
         </>
     );
 };
@@ -133,7 +127,6 @@ const SuccessModal: FC<{ onClose: () => void }> = ({ onClose }) => {
         </div>
     );
 };
-
 
 
 export default InterestedButton;

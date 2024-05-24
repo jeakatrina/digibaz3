@@ -109,11 +109,11 @@ const ArtworkClient: FC<ArtworkClientProps> = ({
 
                             {/* web */}
                             <div className="space-y-2 hidden md:block">
-                                <p className='mx-auto text-md font-extralight md:text-xl'>Starts at: <span className='font-semibold text-orange-300'>₱ {artworkData?.startingPrice}</span></p>
+                                <p className='mx-auto text-md font-extralight md:text-xl'>Price: <span className='font-semibold text-orange-300'>₱ {artworkData?.startingPrice}</span></p>
                                 <InterestedButton userData={userData} />
                             </div>
                             <div className="space-y-2 w-full flex flex-col md:hidden">
-                                <p className='mx-auto text-md font-extralight md:text-xl'>Starts at: <span className='font-semibold text-orange-300'>₱ {artworkData?.startingPrice}</span></p>
+                                <p className='mx-auto text-md font-extralight md:text-xl'>Price: <span className='font-semibold text-orange-300'>₱ {artworkData?.startingPrice}</span></p>
                                 <InterestedButton userData={userData} />
                             </div>
                         </div>
