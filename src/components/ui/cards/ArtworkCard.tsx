@@ -12,7 +12,7 @@ const ArtworkCard: FC<ArtworkCardProps> = ({ data }) => {
     const router = useRouter();
 
     const handleClick = () => {
-        window.open(`/artworks/${data.id}`);
+        window.location.href = `/artworks/${data.id}`;
     };
 
     return (

@@ -11,7 +11,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ data }) => {
     const router = useRouter();
 
     const handleClick = () => {
-        window.open(`/services/${data.id}`);
+        window.location.href = `/services/${data.id}`;
     };
 
     return (
